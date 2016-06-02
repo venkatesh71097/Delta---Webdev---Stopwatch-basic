@@ -1,0 +1,210 @@
+<html>
+<head>
+<style>
+#header {
+	z-index: 1;
+	position: fixed;
+	width: 97.5%;
+	height: 60px;
+	background-color: #668284;
+	margin-bottom: 10px;
+	margin-top:-10px;
+	border:2px solid black;
+}
+
+
+#name {
+	float:left;
+	margin-left: 5px;
+	padding-top: 5px;
+	font-size: 16px;
+	font-family: cursive;
+	color: #ffffff;
+}
+
+img{
+
+	float:right;
+	height:60px;
+	width:60px;
+}
+
+
+body{
+background-image:url("img.png");
+	text-align: center;
+	background: green;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+
+.left{
+
+	float:left;
+	height:100px;
+	width:200px;
+	margin-top:150px;
+	border-radius:60px;
+}
+
+.right{
+	float:right;
+	height:130px;
+	width:200px;
+	margin-top:150px;
+}
+
+
+#countdown{
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
+	border-radius: 3px;
+	margin-top:150px;
+	padding:50px;
+}
+
+#countdown > div{
+	padding: 10px;
+	border-radius: 3px;
+	background: blue;
+	display:inline-block;
+}
+
+#days{
+	padding: 15px;
+	border-radius: 3px;
+	background: blue;
+	color:red;
+	display:inline-block;
+}
+#hours{
+	padding: 15px;
+	border-radius: 3px;
+	background: blue;
+	color:red;
+	display:inline-block;
+}
+#minutes{
+	padding: 15px;
+	border-radius: 3px;
+	background: blue;
+	color:red;
+	display:inline-block;
+}
+#seconds{
+	padding: 15px;
+	border-radius: 3px;
+	background: blue;
+	color:red;
+	display:inline-block;
+}
+
+.tagline{
+	padding-top: 5px;
+	font-size: 16px;
+	background:green;
+}
+
+
+
+#extra{
+
+	font-family:Lucida Sans Unicode;
+color:white;
+}
+
+#gl{
+	font-family:cursive;
+	color:yellow;
+	text-align:left;
+	font-size:30px;
+}
+
+#rcb{
+	font-family:cursive;
+	color:yellow;
+	text-align:right;
+	font-size:30px;
+	margin-top:-10px;
+}
+
+a{
+
+	color:black;
+	text-decoration:none;
+	font-family:Verdana;
+}
+
+a:hover{
+	font-size:15px;
+	color:red;
+}
+
+</style>
+<body>
+	<div id="header">
+			<p id="name">Apple's Indian Premier League 2016</p>
+			<img src="http://red-dot-21.com/wp-content/uploads/2013/06/apple-inc-150x150.jpg" class="head"/>
+		</div>
+<img src="http://sports24hour.com/wp-content/uploads/2016/02/Gujarat-Lions-Team-hd-Logo.jpg" class="left"/>
+<img src="http://news.yuvayana.org/wp-content/uploads/sites/10/2015/04/RCB-Logo.png" class="right"/>
+
+<div id="countdown">
+  <div>
+    <span id="days"></span>
+    <div class="tagline">Days</div>
+  </div>
+  <div>
+    <span id="hours"></span>
+    <div class="tagline">Hours</div>
+  </div>
+  <div>
+    <span id="minutes"></span>
+    <div class="tagline">Minutes</div>
+  </div>
+  <div>
+    <span id="seconds"></span>
+    <div class="tagline">Seconds</div>
+  </div>
+</div>
+<!-- Design of a timer -->
+	<script>
+		var toset=new Date(2016,4,29,20,0,0,0);
+		var myVar;
+		function time()
+		{
+			var now=new Date();
+			var x=toset-now;  //msdifference
+	
+		var d =  Math.floor(((x / 1000) / 3600)/24);
+		var h =  Math.floor(((x / 1000) / 3600)%24);
+		var m =  Math.floor(((x / 1000) / 60) % 60);
+		var s =  Math.floor((x / 1000) % 60);
+		
+			document.getElementById("days").innerHTML=d ;
+			document.getElementById("hours").innerHTML=h;
+			document.getElementById("minutes").innerHTML=m ;
+			document.getElementById("seconds").innerHTML=s;
+
+if(x<0)
+clearInterval(myVar);  //clearstimer
+		}
+		myVar=setInterval(time,1000);
+		</script>
+
+
+<p id="gl"> Gujarat Lions</p>
+vs
+<p id="rcb"> Royal Challengers Bangalore</p>
+
+<p id="extra">remaining......<br/><br/> Get ready to witness the Clash of two Titans<br/><br/><h1> P.S: Data is entirely fictitious</h1><br/><br/></p>
+
+
+<a href="htmlpluscss.html"> Click here<br/><br/> to proceed to the HackerMode task </a>
+		</body>
+		</html>

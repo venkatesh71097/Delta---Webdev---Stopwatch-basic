@@ -1,0 +1,311 @@
+<html>
+<head>
+<style>
+#header {
+	z-index: 1;
+	position: fixed;
+	width: 97.5%;
+	height: 60px;
+	background-color: #668284;
+	margin-bottom: 10px;
+	margin-top:-10px;
+	border:2px solid black;
+}
+
+
+#name {
+	float:left;
+	margin-left: 5px;
+	padding-top: 5px;
+	font-size: 16px;
+	font-family: cursive;
+	color: #ffffff;
+}
+
+img{
+
+	float:right;
+	height:60px;
+	width:60px;
+}
+
+body{
+background-image:url("img.png");
+	text-align: center;
+	background: green;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+
+.left{
+
+	float:left;
+	height:100px;
+	width:200px;
+	margin-top:150px;
+	border-radius:60px;
+}
+
+.right{
+	float:right;
+	height:130px;
+	width:200px;
+	margin-top:150px;
+}
+
+
+#countdown{
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
+	border-radius: 3px;
+	margin-top:150px;
+	padding:50px;
+}
+
+#countdown > div{
+	padding: 10px;
+	border-radius: 3px;
+	background: blue;
+	display:inline-block;
+}
+
+#days{
+	padding: 15px;
+	border-radius: 3px;
+	background: blue;
+	color:red;
+	display:inline-block;
+}
+#hours{
+	padding: 15px;
+	border-radius: 3px;
+	background: blue;
+	color:red;
+	display:inline-block;
+}
+#minutes{
+	padding: 15px;
+	border-radius: 3px;
+	background: blue;
+	color:red;
+	display:inline-block;
+}
+#seconds{
+	padding: 15px;
+	border-radius: 3px;
+	background: blue;
+	color:red;
+	display:inline-block;
+}
+
+.tagline{
+	padding-top: 5px;
+	font-size: 16px;
+	background:green;
+}
+
+
+.styles
+{
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius:50%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.styles:hover{
+
+    background-color:green ;
+    color: white;
+}
+
+
+#extra{
+
+	font-family:Lucida Sans Unicode;
+	color:white;
+}
+
+#gl{
+	font-family:cursive;
+	color:yellow;
+	text-align:left;
+	font-size:30px;
+}
+
+#rcb{
+	font-family:cursive;
+	color:yellow;
+	text-align:right;
+	font-size:30px;
+	margin-top:-10px;
+}
+
+a{
+
+	color:yellow;
+	text-decoration:none;
+	font-family:Verdana;
+}
+
+a:hover{
+	font-size:15px;
+	color:green;
+}
+
+</style>
+</head>
+
+<body>	
+
+<div id="header">
+			<p id="name">Apple's Indian Premier League 2016</p>
+			<img src="http://red-dot-21.com/wp-content/uploads/2013/06/apple-inc-150x150.jpg" class="head"/>
+</div>
+
+<img src="http://sports24hour.com/wp-content/uploads/2016/02/Gujarat-Lions-Team-hd-Logo.jpg" class="left"/>
+<img src="http://news.yuvayana.org/wp-content/uploads/sites/10/2015/04/RCB-Logo.png" class="right"/>
+
+<div id="countdown">
+  <div>
+    <span id="days"></span>
+    <div class="tagline">Days</div>
+  </div>
+  <div>
+    <span id="hours"></span>
+    <div class="tagline">Hours</div>
+  </div>
+  <div>
+    <span id="minutes"></span>
+    <div class="tagline">Minutes</div>
+  </div>
+  <div>
+    <span id="seconds"></span>
+    <div class="tagline">Seconds</div>
+  </div>
+</div>
+<br/>
+<br/>
+
+<!--timer-family-->
+
+<button id="start" onclick="start()" class="styles">Start</button>
+<button id="pause" onclick="pause()" class="styles">Pause</button>
+<button id="reset" onclick="reset()" class="styles">Reset</button><br/><br/>
+<!--buttons-->
+
+
+    <input type="number" id="sec"=>Seconds</input><br/>
+    <input type="number" id="min"=>Minutes</input><br/>
+    <input type="number" id="hr"=>Hours</input><br/>
+    <input type="number" id="d"=>Days</input><br/>
+    <button onclick="init()">Submit</button><br/>
+
+<script>     
+
+  var ms, dsec, dmin, dhr, dd, sec, min, hr, d;
+
+ 
+      function init() {
+        sec = document.getElementById("sec").value;
+        dsec = parseInt(sec);
+        min = document.getElementById("min").value;
+        dmin = parseInt(min);
+        hr = document.getElementById("hr").value;
+        dhr = parseInt(hr);
+        d = document.getElementById("d").value;
+        dd = parseInt(d);
+        ms = dsec * 1000 + dmin * 60 * 1000 + dhr * 60 * 60 * 1000 + dd * 24 * 60 * 60 * 1000;
+       fms=ms;
+      }
+//get the variables in prompt. I/p tag is not suiting for my code as mine is an entirely different algo and a simple one.
+
+var myVar;	
+
+
+function start()
+{	
+	
+
+
+	myVar=setInterval(time,1000);
+
+function time()
+{	
+	var d=  Math.floor(((ms / 1000) / 3600)/24);
+	
+	var h=  Math.floor(((ms / 1000) / 3600)%24);
+	
+	var m=  Math.floor(((ms / 1000) / 60) % 60);
+	
+	var s=  Math.floor((ms / 1000) % 60);
+		
+	document.getElementById("days").innerHTML=d ;
+	document.getElementById("hours").innerHTML=h;
+	document.getElementById("minutes").innerHTML=m ;
+	document.getElementById("seconds").innerHTML=s;
+
+	ms=ms-1000;
+
+	if(d==0 && h==0 && m==0 && s==0)
+
+	clearInterval(myVar);
+
+}
+
+}
+
+//a function inside start function to keep it calling every 1sec. the ms-1000 keeps the value decrementing 
+
+function pause()
+{
+clearInterval(myVar);
+}
+
+// pause function to halt the timer
+
+function reset()
+{	ms=fms;
+	
+	var d=  Math.floor(((ms / 1000) / 3600)/24);
+	
+	var h=  Math.floor(((ms / 1000) / 3600)%24);
+	
+	var m=  Math.floor(((ms / 1000) / 60) % 60);
+	
+	var s=  Math.floor((ms / 1000) % 60);
+
+	
+	document.getElementById("days").innerHTML=d ;
+	document.getElementById("hours").innerHTML=h;
+	document.getElementById("minutes").innerHTML=m ;
+	document.getElementById("seconds").innerHTML=s;
+
+	clearInterval(myVar);
+
+}
+//reset button to again set back to initial value 
+
+
+</script>
+<p id="gl"> Gujarat Lions</p>
+vs
+<p id="rcb"> Royal Challengers Bangalore</p>
+
+<p id="extra">remaining......<br/><br/> Get ready to witness the Clash of two Titans<br/><br/><h1>Data is entirely fictitious</h1></p>
+
+
+<a href="countdown1.html"> Click here<br/><br/> to proceed to the Basic task</a>
+</body>
+</html>		
